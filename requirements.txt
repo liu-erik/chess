@@ -1,0 +1,8 @@
+anthropic
+openai
+chromadb
+langgraph
+langchain-core
+streamlit
+python-dotenv
+chess
