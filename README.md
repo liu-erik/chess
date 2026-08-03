@@ -1,10 +1,6 @@
 # Multi-Agentic Chess Guide
 
-I built this to test something I was curious about: does breaking a coaching task into specialized AI agents actually produce better results than a basic RAG pipeline, or is multi-agent architecture sometimes overkill? I play chess regularly, so I used real games as the test case - paste a game, get coached on your actual mistakes.
-
-## The question I wanted to answer
-
-Multi-agent systems get used a lot without much evidence they outperform simpler approaches for the task at hand. So I built two versions of the same chess coaching assistant - one basic RAG, one multi-agent - and benchmarked them against each other on real detected blunders instead of just assuming the fancier architecture was better.
+Multi-agent systems get used a lot without much evidence they outperform simpler approaches for the task at hand. So I built two versions of the same chess coaching assistant - basic and multi-agent rag. I then benchmarked them against each other on real detected blunders to test which model performed better.
 
 ## How it works
 
@@ -12,7 +8,7 @@ Multi-agent systems get used a lot without much evidence they outperform simpler
 Paste in a PGN -> replay the game move by move on a virtual board -> Stockfish (a free open-source chess engine) evaluates every position -> flag moves where the evaluation drops significantly. This grounds the whole project in actual chess mistakes rather than guessing.
 
 **System A - Basic RAG** (`basic_rag.py`)
-Detected blunder -> convert to description -> embed -> retrieve top 3 relevant coaching chunks -> single LLM call -> explanation
+Detected blunder -> convert to description -> embedd -> retrieve top 3 relevant coaching chunks -> single LLM call -> explanation
 
 **System B - LangGraph Multi-Agent** (`multi_agent.py`)
 Detected blunder -> Retrieval Agent (same retrieval as System A) -> Analysis Agent (classifies what TYPE of mistake it was - tactical, positional, or principle-based) -> Coach Agent (synthesizes retrieved knowledge + analysis into personalized advice tied to the exact position) -> explanation
@@ -40,7 +36,7 @@ cp .env.example .env
 # add your ANTHROPIC_API_KEY and OPENAI_API_KEY to .env
 ```
 
-You'll also need Stockfish (free, no API key needed):
+Most important part: also need Stockfish locally (free, no API key needed):
 1. Download from https://stockfishchess.org/download/
 2. Place the executable in a `stockfish/` folder in this project
 3. Update `STOCKFISH_PATH` in `game_analyzer.py` to point to it
