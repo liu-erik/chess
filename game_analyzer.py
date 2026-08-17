@@ -6,7 +6,7 @@ This file handles the "real chess analysis" part of the project:
 2. Replay the game move by move on a virtual board
 3. Use Stockfish (a free, open-source chess engine) to evaluate each position
 4. Flag moves where the evaluation drops significantly - these are blunders
-   or mistakes worth coaching on
+   or mistakes worth coaching
 
 This replaces "guessing" what's a mistake with actual engine verification,
 which is what makes the coaching feedback grounded in something real rather
