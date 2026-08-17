@@ -13,7 +13,7 @@ Detected blunder -> convert to description -> embedd -> retrieve top 3 relevant 
 **System B - LangGraph Multi-Agent** (`multi_agent.py`)
 Detected blunder -> Retrieval Agent (same retrieval as System A) -> Analysis Agent (classifies what TYPE of mistake it was - tactical, positional, or principle-based) -> Coach Agent (synthesizes retrieved knowledge + analysis into personalized advice tied to the exact position) -> explanation
 
-Both systems pull from the same knowledge base - 48 hand-written chess knowledge chunks covering opening principles, tactics, endgames, strategy, and common mistakes, embedded with OpenAI's `text-embedding-3-small` and stored locally in ChromaDB.
+Both systems pull from the same knowledge base - 48 hand-written chess knowledge chunks covering opening principles, tactics, endgames, strategy, and common mistakes, embedded with OpenAI's `text-embedding-3-small` and stored locally in pgVector.
 
 ## How I evaluated it
 
@@ -56,14 +56,14 @@ streamlit run app.py
 
 ## Stack
 
-Python, LangGraph, ChromaDB, Stockfish, python-chess, Claude API (Anthropic), OpenAI embeddings, Streamlit
+Python, LangGraph, pgVector, Stockfish, python-chess, Claude API (Anthropic), OpenAI embeddings, Streamlit
 
 ## Project structure
 
 ```
 chess/
 ├── game_analyzer.py    # PGN parsing + Stockfish blunder detection
-├── knowledge_base.py   # Chess content + ChromaDB embedding setup
+├── knowledge_base.py   # Chess content + pgVector embedding setup
 ├── basic_rag.py         # System A: single-shot RAG on detected blunders
 ├── multi_agent.py       # System B: LangGraph 3-agent pipeline
 ├── eval.py               # Benchmark runner + LLM-as-judge scoring
