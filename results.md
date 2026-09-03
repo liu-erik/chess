@@ -1,6 +1,5 @@
 # Chess Multi-Agent vs Basic RAG - Evaluation Results
 
-Evaluated on 9 real blunders detected by Stockfish across 2 sample games.
 
 ## Summary Statistics
 
@@ -10,13 +9,12 @@ Evaluated on 9 real blunders detected by Stockfish across 2 sample games.
 | Avg Specificity Score | 5.8/10 | 8.9/10 |
 | Avg Latency | 12.12s | 21.79s |
 
-**Multi-agent system was preferred in 100% of blunders.**
 
 **Combined quality score improvement: +38.3%**
 
 **Latency tradeoff: 1.8x slower**
 
-## Per-Blunder Results
+## Per-Blunder Results // this section generated analysis
 
 | Blunder | Eval Swing | RAG (Rel/Spec) | Agent (Rel/Spec) | Preferred | Reasoning |
 |---|---|---|---|---|---|
