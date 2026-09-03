@@ -168,7 +168,7 @@ def answer_with_multi_agent(blunder):
         "retrieved_chunks": final_state["retrieved_chunks"],
         "analysis": final_state["analysis"]
     }
-
+  
 
 if __name__ == "__main__":
     # Quick manual test - compare this output to basic_rag.py's output
