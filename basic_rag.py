@@ -6,7 +6,7 @@ System A: the "baseline" approach.
 This is the simplest possible RAG (Retrieval Augmented Generation) pipeline,
 now operating on REAL detected blunders from a chess game (found by Stockfish
 in game_analyzer.py) instead of free-text questions:
-
+ 
 1. Take a detected blunder (move, eval swing, position)
 2. Turn it into a natural language description
 3. Embed that description and find the most similar coaching chunks
